@@ -38,6 +38,94 @@ Todo.create([
 ```
 </details>
 
+## Read
+
+### Read all
+
+Create a route
+
+```rb
+# config/routes.rb
+
+get '/todos', to: 'todos#index'
+```
+
+Create a controller
+
+```rb
+# app/controllers/todos_controller.rb
+class TodosController < ApplicationController
+
+end
+```
+
+Create an index method
+
+```rb
+# app/controllers/todos_controller.rb
+class TodosController < ApplicationController
+  def index
+  end
+end
+```
+
+get all the todos from the db
+
+```rb
+# app/controllers/todos_controller.rb
+class TodosController < ApplicationController
+  def index
+    @todos = Todo.all
+  end
+end
+```
+
+create a view (template)
+
+```html
+<!-- app/views/todos/index.html.erb -->
+  <%= @todos.inspect %>
+```
+
+loop through items
+
+ ```html
+ <!-- app/views/todos/index.html.erb -->
+   <% @todos.each do |todo| %>
+     <li>
+        <% if todo.completed %>
+          <del>
+        <% end %>
+        <%= todo.text %>
+        <% if todo.completed %>
+          </del>
+        <% end %>
+      </li>
+   <% end %>
+ ```
+
+### Read a single one
+
+Link to each one in the loop
+
+```html
+<%= link_to todo.text, "/todos/#{todo.id}" %>
+```
+
+Create a route in `config/routes.rb`
+
+Create a method called `show`
+
+Create a view in `app/views/todos/show.html.erb`
+
+
+## Create
+
+## Update
+
+## Delete
+
+
 ## Screencasts from a previous review
 
 - https://vimeo.com/150937914
