@@ -5,6 +5,8 @@ $ git clone https://github.com/ga-wdi-exercises/totally-doable
 $ cd totally-doable
 $ bundle install
 $ rails db:create
+$ rails db:migrate
+$ rails db:seed
 ```
 
 <details>
